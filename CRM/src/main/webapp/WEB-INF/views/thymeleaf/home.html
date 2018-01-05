@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html th:lang="${#locale.language}" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Thymeleaf</title>
+    <link href="/static/css/main.css" th:href="@{/static/css/main.css}" rel="stylesheet">
+    <script src="/static/js/main.js" th:src="@{/static/js/main.js}"></script>
+</head>
+<body>
+    <header>
+        <h1 id="demo">Wellcome to Thymeleaf!</h1>
+        <button type="button" onclick="myFunction()">Click here</button>
+    </header>
+    <br>
+    <a href="/list">List Employees of Company</a>
+</body>
+</html>

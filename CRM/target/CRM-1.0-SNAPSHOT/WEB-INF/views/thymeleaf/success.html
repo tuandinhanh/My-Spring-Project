@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html th:lang="${#locale.language}" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Registration Confirmation Page</title>
+</head>
+<body>
+    <p th:text="${success}">Success!</p>
+    <br>
+    <br>
+    <p>Go to back <a th:href="@{/list}" th:text="List of All Employees">List Employees</a></p>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html th:lang="${#locale.language}" xmlns:th="http://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8">
+    <title>Thymeleaf: Welcome to Websocket</title>
+    <link href="/webjars/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <script src="/webjars/jquery/3.2.1/jquery.min.js"></script>
+    <script src="/webjars/sockjs-client/1.1.2/sockjs.min.js"></script>
+    <script src="/webjars/stomp-websocket/2.3.3/stomp.min.js"></script>
+
+    <link href="/static/css/main.css" rel="stylesheet">
+    <script src="/static/js/main.js"></script>
+</head>
+<body>
+
+<h1>ajdhajksgdaskhvfkajbfjlab</h1>
+<noscript>
+    <h2 style="color: #ff0000">Seems your browser doesn't support Javascript!
+        Websocket replies on Javascipt being enable. Please enable Javascript
+        and reload this page!
+    </h2>
+</noscript>
+<div id="main-content" th:class="container">
+    <div th:class="row">
+        <div th:class="col-lg-6">
+            <form th:class="form-inline">
+                <div th:class="form-group">
+                    <label for="connect">Websocket connecttion:</label>
+                    <button id="connect" th:class="btn-default" type="submit">Connect</button>
+                    <button id="disconnect" th:class="btn-default" type="submit" disabled="disabled">Disconnect</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div th:class="col-lg-6">
+        <form th:class="form-inline">
+            <div th:class="form-group">
+                <label for="message">Message:</label>
+                <input type="text" id="message" class="form-control" placeholder="Your message here...">
+            </div>
+            <button id="send" th:class="btn-default" type="submit">Send</button>
+        </form>
+    </div>
+    <div th:class="row">
+        <div th:class="col-lg-12">
+            <table id="conversation" th:class="table-bordered">
+                <thead>
+                <tr>
+                    <th>Greetings</th>
+                </tr>
+                </thead>
+                <tbody id="greetings">
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+</body>
+</html>

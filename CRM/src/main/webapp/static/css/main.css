@@ -1,0 +1,49 @@
+body {
+    background-color: lightblue;
+}
+
+header {
+    background: aqua;
+    text-align: center;
+}
+
+thead {
+    font-weight: bold;
+    background: darkblue;
+    color: green;
+}
+
+tbody {
+    text-align: left;
+    color: blue;
+}
+
+tfoot {
+    color: red;
+}
+table.list {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th.list, td.list {
+    text-align: left;
+    padding: 8px;
+    border: 1px solid #dddddd;
+}
+
+tr.list:nth-child(even){background-color: #f2f2f2}
+
+th.list {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.input-has-error {
+    border: 1px solid red;
+}
+
+.message-error {
+    color: red;
+}
+

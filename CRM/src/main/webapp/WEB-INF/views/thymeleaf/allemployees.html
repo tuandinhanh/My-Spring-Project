@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html th:lang="${#locale.language}" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>All Employees Thymeleaf</title>
+    <link href="/static/css/main.css" rel="stylesheet">
+    <script src="/static/js/main.js"></script>
+</head>
+<body>
+    <header>
+        <h1 id="demo">Wellcome to Thymeleaf!</h1>
+        <button type="button" onclick="myFunction()">Click here</button>
+    </header>
+    <div id="body" th:unless="${#lists.isEmpty(employees)}">
+        <h2>List Employees</h2>
+        <table class="list">
+            <thead>
+                <tr class="list">
+                    <th class="list" th:text="#{employee.name}">Name</th>
+                    <th class="list" th:text="#{employee.joiningdate}">Joining Date</th>
+                    <th class="list" th:text="#{employee.salary}">Salary</th>
+                    <th class="list" th:text="#{employee.ssn}">SSN</th>
+                    <th class="list"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="list" th:each="employee : ${employees}">
+                    <td class="list" th:text="${employee.name}">error</td>
+                    <td class="list" th:text="${employee.joiningDate}">error</td>
+                    <td class="list" th:text="${employee.salary}">error</td>
+                    <td class="list"><a th:href="@{/edit/employee(id=${employee.id})}" th:text="${employee.ssn}">error</a> </td>
+                    <td class="list"><a th:href="@{/delete/employee(id=${employee.id})}" th:text="delete">error</a> </td>
+                </tr>
+            </tbody>
+        </table>
+        <br>
+        <a href="registration.html" th:href="@{/new}">Add new Employee</a>
+    </div>
+
+</body>
+</html>

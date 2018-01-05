@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html th:lang="${#locale.language}" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Thymeleaf: Employee Registration Form</title>
+    <link href="/static/css/main.css" th:href="@{/static/css/main.css}" rel="stylesheet">
+    <script src="/static/js/main.js" th:src="@{/static/js/main.js}"></script>
+</head>
+<body>
+    <header>
+        <h1 id="demo">Wellcome to Thymeleaf!</h1>
+        <button type="button" onclick="myFunction()">Click here</button>
+    </header>
+    <div id="body" th:unless="${employee == null}">
+        <h2>Registration Form</h2>
+        <form th:object="${employee}" method="post">
+            <input type="hidden" th:field="*{id}" name="id">
+            <table>
+                <tr>
+                    <th th:text="#{employee.name}">Name</th>
+                    <td><input type="text" th:field="*{name}" required th:classappend="${#fields.hasErrors('name')}? 'input-has-error'"></td>
+                    <td th:class="message-error" th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name error</td>
+                </tr>
+                <tr>
+                    <th th:text="#{employee.joiningdate}">Joining Date</th>
+                    <td><input type="text" th:field="*{joiningDate}" required th:classappend="${#fields.hasErrors('joiningDate')}? 'input-has-error'"></td>
+                    <td th:class="message-error" th:if="${#fields.hasErrors('joiningDate')}" th:errors="*{joiningDate}">Joining Date error</td>
+                </tr>
+                <tr>
+                    <th th:text="#{employee.salary}">Salary</th>
+                    <td><input type="text" th:field="*{salary}" th:classappend="${#fields.hasErrors('salary')}? 'input-has-error'"></td>
+                    <td th:class="message-error" th:if="${#fields.hasErrors('salary')}" th:errors="*{salary}" >Salary error</td>
+                </tr>
+                <tr>
+                    <th th:text="#{employee.ssn}">Name</th>
+                    <td><input type="text" th:field="*{ssn}" required th:classappend="${#fields.hasErrors('ssn')}? 'input-has-error'"></td>
+                    <td th:class="message-error" th:if="${#fields.hasErrors('ssn')}" th:errors="*{ssn}">SSN error</td>
+                </tr>
+                <tr>
+                    <td colspan="3">
+                        <input type="submit" th:if="${edit}" th:value="Update">
+                        <input type="submit" th:unless="${edit}" th:value="Registration">
+                    </td>
+                </tr>
+            </table>
+        </form>
+        <br>
+        <br>
+        <p>Go to back <a href="/list" th:href="@{/list}" >List of All Employee</a></p>
+    </div>
+</body>
+</html>

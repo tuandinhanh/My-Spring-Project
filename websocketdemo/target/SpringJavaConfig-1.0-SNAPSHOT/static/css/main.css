@@ -1,0 +1,13 @@
+body {
+    background-color: lightblue;
+}
+h1 {
+    font-family: Arial;
+    color: darkblue;
+    text-align: center;
+}
+p {
+    color: hotpink;
+    font-family: verdana;
+    font-size: 20px;
+}
