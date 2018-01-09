@@ -1,5 +1,6 @@
 var stompClient = null;
 var id = 0;
+
 function setConnected(connected) {
     $("#connect").prop("disabled", connected);
     $("#disconnect").prop("disabled", !connected);
