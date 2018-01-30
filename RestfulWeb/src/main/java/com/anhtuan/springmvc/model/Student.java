@@ -1,11 +1,20 @@
 package com.anhtuan.springmvc.model;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "STUDENT")
 public class Student {
 
+    @Id
+    @Column(name = "ID")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
+    @Column(name = "NAME", nullable = false)
     private String name;
 
+    @Column(name = "CLAZZ", nullable = false)
     private String clazz;
 
     public int getId() {

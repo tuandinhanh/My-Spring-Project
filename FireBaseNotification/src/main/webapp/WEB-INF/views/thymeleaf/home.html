@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html th:lang="${#locale.language}" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Thymeleaf</title>
+
+    <script src="https://www.gstatic.com/firebasejs/4.8.2/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.8.2/firebase-messaging.js"></script>
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyCtigbzy6GNDRGp1CGs0Lvpy4MaTvQ9Im4",
+            authDomain: "springfirebase-727c8.firebaseapp.com",
+            databaseURL: "https://springfirebase-727c8.firebaseio.com",
+            projectId: "springfirebase-727c8",
+            storageBucket: "springfirebase-727c8.appspot.com",
+            messagingSenderId: "971069439429"
+        };
+        firebase.initializeApp(config);
+    </script>
+</head>
+<body>
+<p th:text="${aa}">asdadaasd</p>
+</body>
+</html>

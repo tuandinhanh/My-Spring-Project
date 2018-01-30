@@ -1,0 +1,40 @@
+header {
+    background-color: darkblue;
+    color: white;
+    text-align: left;
+}
+
+body {
+    background-image: url("/static/image/background.png");
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: repeat-y;
+    background-size: cover;
+
+    color: red;
+    text-align: center;
+}
+
+table {
+    width: 50%;
+    margin-left:auto;
+    margin-right:auto;
+    background-color: lightblue;
+    border-collapse: collapse;
+}
+
+td, th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+tr:nth-child(even){background-color: #f2f2f2;}
+
+tr:hover {background-color: #ddd;}
+
+th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    background-color: #4CAF50;
+    color: white;
+}

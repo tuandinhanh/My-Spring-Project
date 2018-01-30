@@ -19,12 +19,12 @@
             <table>
                 <tr>
                     <th th:text="#{employee.name}">Name</th>
-                    <td><input type="text" th:field="*{name}" required th:classappend="${#fields.hasErrors('name')}? 'input-has-error'"></td>
+                    <td><input type="text" th:field="*{name}" th:classappend="${#fields.hasErrors('name')}? 'input-has-error'"></td>
                     <td th:class="message-error" th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name error</td>
                 </tr>
                 <tr>
                     <th th:text="#{employee.joiningdate}">Joining Date</th>
-                    <td><input type="text" th:field="*{joiningDate}" required th:classappend="${#fields.hasErrors('joiningDate')}? 'input-has-error'"></td>
+                    <td><input type="text" th:field="*{joiningDate}" th:classappend="${#fields.hasErrors('joiningDate')}? 'input-has-error'"></td>
                     <td th:class="message-error" th:if="${#fields.hasErrors('joiningDate')}" th:errors="*{joiningDate}">Joining Date error</td>
                 </tr>
                 <tr>
@@ -34,7 +34,7 @@
                 </tr>
                 <tr>
                     <th th:text="#{employee.ssn}">Name</th>
-                    <td><input type="text" th:field="*{ssn}" required th:classappend="${#fields.hasErrors('ssn')}? 'input-has-error'"></td>
+                    <td><input type="text" th:field="*{ssn}" th:classappend="${#fields.hasErrors('ssn')}? 'input-has-error'"></td>
                     <td th:class="message-error" th:if="${#fields.hasErrors('ssn')}" th:errors="*{ssn}">SSN error</td>
                 </tr>
                 <tr>

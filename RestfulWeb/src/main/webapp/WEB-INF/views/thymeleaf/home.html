@@ -1,10 +1,54 @@
 <!DOCTYPE html>
-<html lang="en">
+<html th:lang="${#locale.language}" xmlns:th="http://www.thymeleaf.org/">
 <head>
     <meta charset="UTF-8">
     <title>Thymeleaf</title>
+    <link rel="stylesheet" href="/static/css/app.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $.ajax({
+                url: "http://localhost:8080/getAllStudent"
+            }).then(function(data) {
+                $("#ListStudent").show();
+                showData(data);
+            }).catch(function (reason) {
+                $("#ListStudent").hide();
+                $("#fail").append("Error reason: " + reason);
+            });
+        });
+
+        function showData(data) {
+            for (i in data) {
+                $("#student").append("<tr><td>" + data[i].id + "</td><td>" + data[i].name + "</td><td>" + data[i].clazz + "</td></tr>");
+            }
+            $("#Total").append(data.length + "");
+        }
+    </script>
 </head>
 <body>
-Hello Thymeleaf
+    <header>
+        <h2>Thymeleaf</h2>
+    </header>
+    <div>
+        <table id="ListStudent">
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Class</th>
+            </tr>
+            </thead>
+            <tbody id="student">
+            </tbody>
+            <tfoot>
+            <tr>
+                <td>Total</td>
+                <td id="Total" colspan="2"></td>
+            </tr>
+            </tfoot>
+        </table>
+        <p id="fail"></p>
+    </div>
 </body>
 </html>

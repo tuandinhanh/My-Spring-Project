@@ -10,9 +10,8 @@
         <module name="HibernateConfig" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
+    <bytecodeTargetLevel target="9">
       <module name="CRM" target="9" />
-      <module name="HibernateConfig" target="9" />
     </bytecodeTargetLevel>
   </component>
 </project>

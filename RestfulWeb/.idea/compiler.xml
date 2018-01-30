@@ -9,7 +9,7 @@
         <module name="RestfulWeb" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
+    <bytecodeTargetLevel target="9">
       <module name="RestfulWeb" target="1.5" />
     </bytecodeTargetLevel>
   </component>

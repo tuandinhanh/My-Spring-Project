@@ -11,6 +11,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
+import org.springframework.security.web.authentication.rememberme.PersistentTokenBasedRememberMeServices;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -29,9 +30,12 @@ public class HomeController {
     UserService userService;
 
     @Autowired
+    PersistentTokenBasedRememberMeServices persistentTokenBasedRememberMeServices;
+
+    @Autowired
     AuthenticationTrustResolver authenticationTrustResolver;
 
-    @RequestMapping(value = {"/", "/list"}, method = RequestMethod.GET)
+    @RequestMapping(value = {"/", "/home"}, method = RequestMethod.GET)
     public String listUsers(ModelMap modelMap) {
         List<User> users = userService.findAllUsers();
         modelMap.addAttribute("users", users);
@@ -44,7 +48,7 @@ public class HomeController {
         return "edit";
     }
 
-    @RequestMapping(value = "delete", method = RequestMethod.GET)
+    @RequestMapping(value = "/delete", method = RequestMethod.GET)
     public String delete() {
         return "delete";
     }
@@ -57,16 +61,18 @@ public class HomeController {
             if (error != null) modelMap.addAttribute("error", "Invalid username and password");
             if (logout != null) modelMap.addAttribute("logout", "You have been logged out successfully!");
             return "login";
-        } else return "redirect:/list";
+        } else return "redirect:/";
     }
 
     @RequestMapping(value = "/logout", method = RequestMethod.GET)
     public String logout(HttpServletRequest request, HttpServletResponse response) {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         if (authentication != null) {
-            new SecurityContextLogoutHandler().logout(request, response, authentication);
+            //new SecurityContextLogoutHandler().logout(request, response, authentication);
+            persistentTokenBasedRememberMeServices.logout(request, response, authentication);
             SecurityContextHolder.getContext().setAuthentication(null);
-        }
+            System.out.println("----------------Outed----------");
+        } else System.out.println("-----------Cant outed----------");
         return "redirect:/login?logout";
     }
 
@@ -77,7 +83,7 @@ public class HomeController {
     }
 
     private String getPrincipal(){
-        String userName = null;
+        String userName;
         Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 
         if (principal instanceof UserDetails) {

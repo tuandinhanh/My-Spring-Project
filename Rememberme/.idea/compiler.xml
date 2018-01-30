@@ -9,8 +9,8 @@
         <module name="Rememberme" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="Rememberme" target="1.5" />
+    <bytecodeTargetLevel target="9">
+      <module name="Rememberme" target="9" />
     </bytecodeTargetLevel>
   </component>
 </project>
