@@ -1,4 +1,4 @@
-package com.anhtuan.springmvc.com.anhtuan.springmvc.service;
+package com.anhtuan.springmvc.service;
 
 import com.anhtuan.springmvc.dao.StudentDao;
 import com.anhtuan.springmvc.model.Student;
@@ -9,7 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
-@Service("studentService")
+@Service
 @Transactional
 public class StudentServiceImpl implements StudentService {
 

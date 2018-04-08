@@ -1,6 +1,6 @@
 package com.anhtuan.springmvc.Controller;
 
-import com.anhtuan.springmvc.com.anhtuan.springmvc.service.StudentService;
+import com.anhtuan.springmvc.service.StudentService;
 import com.anhtuan.springmvc.model.Student;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -18,7 +18,6 @@ import java.util.List;
 public class RestController {
 
     @Autowired
-    @Qualifier("studentService")
     private StudentService studentService;
 
     @RequestMapping(value = "/")

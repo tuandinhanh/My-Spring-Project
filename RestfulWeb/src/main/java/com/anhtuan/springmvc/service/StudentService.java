@@ -1,4 +1,4 @@
-package com.anhtuan.springmvc.com.anhtuan.springmvc.service;
+package com.anhtuan.springmvc.service;
 
 import com.anhtuan.springmvc.model.Student;
 

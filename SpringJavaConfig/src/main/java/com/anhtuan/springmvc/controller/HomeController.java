@@ -20,6 +20,11 @@ public class HomeController {
         return "thymeleaf/home.html";
     }
 
+    @RequestMapping(value = "/")
+    public String homeJSP() {
+        return "jsp/home.jsp";
+    }
+
     // @ResponseBody means the returned String is the response, not a view name
     @RequestMapping(value = "/hello", method = RequestMethod.GET, produces = "application/json")
     @ResponseBody
