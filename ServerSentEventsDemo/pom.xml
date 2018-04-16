@@ -63,15 +63,8 @@
             <version>2.9.3</version>
         </dependency>
         <dependency>
-            <groupId>org.springframework.integration</groupId>
-            <artifactId>spring-integration-core</artifactId>
-            <version>5.0.2.RELEASE</version>
-        </dependency>
-        <!-- https://mvnrepository.com/artifact/org.springframework/spring-expression -->
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-expression</artifactId>
-            <version>5.0.2.RELEASE</version>
+            <groupId>org.apache.activemq.examples.broker</groupId>
+            <artifactId>spring-integration</artifactId>
         </dependency>
 
         <dependency>

@@ -10,6 +10,7 @@
           <element id="library" level="project" name="Maven: org.springframework:spring-webmvc:5.0.2.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-aop:5.0.2.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-beans:5.0.2.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-expression:5.0.2.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-web:5.0.2.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-context:5.0.2.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-core:5.0.2.RELEASE" />
@@ -27,6 +28,8 @@
           <element id="library" level="project" name="Maven: com.fasterxml.jackson.jaxrs:jackson-jaxrs-json-provider:2.9.3" />
           <element id="library" level="project" name="Maven: com.fasterxml.jackson.jaxrs:jackson-jaxrs-base:2.9.3" />
           <element id="library" level="project" name="Maven: com.fasterxml.jackson.module:jackson-module-jaxb-annotations:2.9.3" />
+          <element id="library" level="project" name="Maven: org.apache.activemq.examples.broker:spring-integration:unknown" />
+          <element id="library" level="project" name="Maven: org.springframework.integration:spring-integration-file:5.0.2.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework.integration:spring-integration-core:5.0.2.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-messaging:5.0.4.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-tx:5.0.4.RELEASE" />
@@ -36,8 +39,6 @@
           <element id="library" level="project" name="Maven: io.micrometer:micrometer-core:1.0.0" />
           <element id="library" level="project" name="Maven: org.hdrhistogram:HdrHistogram:2.1.10" />
           <element id="library" level="project" name="Maven: org.latencyutils:LatencyUtils:2.0.3" />
-          <element id="library" level="project" name="Maven: org.springframework:spring-expression:5.0.2.RELEASE" />
-          <element id="library" level="project" name="Maven: org.springframework.integration:spring-integration-file:5.0.2.RELEASE" />
           <element id="library" level="project" name="Maven: commons-io:commons-io:2.4" />
         </element>
       </element>

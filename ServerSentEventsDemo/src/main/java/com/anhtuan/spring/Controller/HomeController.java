@@ -25,13 +25,9 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 @Controller
-@EnableIntegration
-@IntegrationComponentScan
-@ComponentScan
-
 public class HomeController {
 
-    private final Map<String, SseEmitter> sses = new ConcurrentHashMap<>();
+
 
     @RequestMapping(value = "/")
     public String homeThymeleaf() {
@@ -45,49 +41,7 @@ public class HomeController {
 
     @RequestMapping(value = "/test", produces = "application/json")
     @ResponseBody
-    public ResponseEntity test() {
-        String s = "asdasda";
-        for (int i = 0; i < 10; i++) {
-            sses.forEach((s1, sseEmitter) -> {
-                try {
-                    sseEmitter.send(s1 + " : fdfsdf");
-                    Thread.sleep(1000);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-            });
-        }
-        return new ResponseEntity(s, HttpStatus.OK);
-    }
-
-
-
-    @RequestMapping(value = "/file/{name}")
-    public SseEmitter files(@PathVariable String name) {
-        SseEmitter sseEmitter = new SseEmitter(60 * 1000L);
-        sses.put(name, sseEmitter);
-        return sseEmitter;
-    }
-
-    @Bean
-    IntegrationFlow inboundFlow(@Value("${input-dir:file://${HOME}/Pictures/omg}")File in) {
-        return IntegrationFlows.from(Files.inboundAdapter(in).autoCreateDirectory(true),
-                poller -> poller.poller(spec -> spec.fixedDelay(1000L)))
-                .transform(File.class, File::getAbsolutePath)
-                .handle(String.class, (path, map) -> {
-
-                    sses.forEach((k,sse) -> {
-                        try {
-                            sse.send(path);
-                        } catch (IOException e) {
-                            throw new RuntimeException(e);
-                        }
-                    });
-
-                    return null;
-                })
-                .get();
+    public String test() {
+        return "OK";
     }
 }
