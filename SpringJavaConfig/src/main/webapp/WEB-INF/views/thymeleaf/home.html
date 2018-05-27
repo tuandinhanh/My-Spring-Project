@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Thymeleaf</title>
@@ -14,5 +14,7 @@
     <button type="button" onclick="myFunction()">Try it</button>
 
     <p id="demo">(myFunction is stored in an external file called "myScript.js")</p>
+
+    <h1 th:text="${test}"></h1>
 </body>
 </html>
