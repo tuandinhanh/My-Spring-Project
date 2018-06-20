@@ -22,6 +22,11 @@ public class UserServiceImpl implements UserService {
         return userJpaRepository.findAll();
     }
 
+    @Override
+    public User findUserById(Integer id) {
+        return userJpaRepository.findById(id).orElse(null);
+    }
+
     /*@Override
     public boolean isUserAvailable(String username) {
         Integer count = userJpaRepository.countUsersByLogin(username);

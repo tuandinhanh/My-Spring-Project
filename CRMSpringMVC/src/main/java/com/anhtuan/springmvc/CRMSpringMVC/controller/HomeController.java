@@ -11,19 +11,23 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.persistence.EntityManager;
 import java.util.List;
 
 @RestController
 public class HomeController {
+
+    private final EntityManager entityManager;
 
     private final UserService userService;
 
     private final RoleJpaRepository roleJpaRepository;
 
     @Autowired
-    public HomeController(UserService userService, RoleJpaRepository roleJpaRepository) {
+    public HomeController(UserService userService, RoleJpaRepository roleJpaRepository, EntityManager entityManager) {
         this.userService = userService;
         this.roleJpaRepository = roleJpaRepository;
+        this.entityManager = entityManager;
     }
 
     @GetMapping(value = "/allUsers", produces = "application/json")
@@ -55,8 +59,14 @@ public class HomeController {
         return roleJpaRepository.findAll();
     }
 
-    @GetMapping(value = "/test")
-    public Role test(@RequestParam(value = "role", required = true) String role) {
+    @GetMapping(value = "/testQuery")
+    public Role testQuery(@RequestParam(value = "role", required = true) String role) {
         return roleJpaRepository.findRoleByRole(role);
+    }
+
+    @GetMapping(value = "/testHQL")
+    public List<Role> testHQL() {
+        String query = "select R from " + Role.class.getSimpleName() +" R";
+        return entityManager.createQuery(query, Role.class).getResultList();
     }
 }
