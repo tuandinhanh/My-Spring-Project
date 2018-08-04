@@ -5,6 +5,7 @@
     <title>Title</title>
 </head>
 <body>
+<div th:replace="auth :: auth"></div>
 <div th:unless="${#lists.isEmpty(list)}">
     <h2>List of Users</h2>
     <table>

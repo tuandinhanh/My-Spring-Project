@@ -1,5 +1,6 @@
-package com.anhtuan.springmvc.CRMSpringMVC.model;
+package com.anhtuan.springmvc.CRMSpringMVC.model.login;
 
+import com.anhtuan.springmvc.CRMSpringMVC.model.login.Role;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -17,7 +18,6 @@ public class User implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
-    @NotNull
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID_USER")
     private Integer id;
@@ -71,7 +71,7 @@ public class User implements Serializable {
     private String password;
 
     @JsonIgnore
-    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "USERS_ROLES",
             joinColumns = @JoinColumn(name = "USER_ID", referencedColumnName = "ID_USER", foreignKey = @ForeignKey(name = "FK_USERS")),
             inverseJoinColumns = @JoinColumn(name = "ROLE_ID", referencedColumnName = "ID_ROLE", foreignKey = @ForeignKey(name = "FK_ROLES"))

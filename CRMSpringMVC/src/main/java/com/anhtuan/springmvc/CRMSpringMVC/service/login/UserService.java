@@ -1,7 +1,6 @@
-package com.anhtuan.springmvc.CRMSpringMVC.service;
+package com.anhtuan.springmvc.CRMSpringMVC.service.login;
 
-import com.anhtuan.springmvc.CRMSpringMVC.model.Role;
-import com.anhtuan.springmvc.CRMSpringMVC.model.User;
+import com.anhtuan.springmvc.CRMSpringMVC.model.login.User;
 
 import java.util.List;
 

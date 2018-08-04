@@ -1,13 +1,10 @@
 package com.anhtuan.springmvc.CRMSpringMVC.controller;
 
-import com.anhtuan.springmvc.CRMSpringMVC.dao.RoleJpaRepository;
-import com.anhtuan.springmvc.CRMSpringMVC.dao.UserJpaRepository;
-import com.anhtuan.springmvc.CRMSpringMVC.model.Role;
-import com.anhtuan.springmvc.CRMSpringMVC.model.User;
-import com.anhtuan.springmvc.CRMSpringMVC.service.UserService;
+import com.anhtuan.springmvc.CRMSpringMVC.dao.login.RoleJpaRepository;
+import com.anhtuan.springmvc.CRMSpringMVC.model.login.Role;
+import com.anhtuan.springmvc.CRMSpringMVC.model.login.User;
+import com.anhtuan.springmvc.CRMSpringMVC.service.login.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -36,7 +33,7 @@ public class HomeController {
     }
 
     @GetMapping(value = "/findUsersByFirstName")
-    public ResponseEntity findUsersByFirstName(@RequestParam(value = "firstName", required = true) String firstName) {
+    public ResponseEntity findUsersByFirstName(@RequestParam(value = "firstName") String firstName) {
         User user = userService.getUserByFirstName(firstName);
         if (user == null)
             return ResponseEntity.ok("No found");
@@ -44,14 +41,17 @@ public class HomeController {
     }
 
     @GetMapping(value = "/countUsersByFirstName")
-    public Integer countUsersByFirstName(@RequestParam(value = "firstName", required = true) String firstName) {
+    public Integer countUsersByFirstName(@RequestParam(value = "firstName") String firstName) {
         return userService.countUsersByFirstName(firstName);
     }
 
     @PostMapping(value = "/add", headers = "Accept=application/json", produces = "application/json")
     public ResponseEntity add(@RequestBody final User user) {
-        userService.save(user);
-        return ResponseEntity.ok("ok");
+        if (userService.findUserById(user.getId()) == null) {
+            userService.save(user);
+            return ResponseEntity.ok("ok");
+        }
+        return ResponseEntity.ok("Entity is existed");
     }
 
     @GetMapping(value = "/allRoles", produces = "application/json")
@@ -60,7 +60,7 @@ public class HomeController {
     }
 
     @GetMapping(value = "/testQuery")
-    public Role testQuery(@RequestParam(value = "role", required = true) String role) {
+    public Role testQuery(@RequestParam(value = "role") String role) {
         return roleJpaRepository.findRoleByRole(role);
     }
 
@@ -69,4 +69,8 @@ public class HomeController {
         String query = "select R from " + Role.class.getSimpleName() +" R";
         return entityManager.createQuery(query, Role.class).getResultList();
     }
+
+    /*--------------------------------------Notitication------------------------------------*/
+
+
 }

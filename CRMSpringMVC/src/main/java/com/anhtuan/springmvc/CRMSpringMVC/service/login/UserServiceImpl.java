@@ -1,9 +1,9 @@
-package com.anhtuan.springmvc.CRMSpringMVC.service;
+package com.anhtuan.springmvc.CRMSpringMVC.service.login;
 
-import com.anhtuan.springmvc.CRMSpringMVC.dao.UserJpaRepository;
-import com.anhtuan.springmvc.CRMSpringMVC.model.Role;
-import com.anhtuan.springmvc.CRMSpringMVC.model.User;
+import com.anhtuan.springmvc.CRMSpringMVC.dao.login.UserJpaRepository;
+import com.anhtuan.springmvc.CRMSpringMVC.model.login.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.Assert;
@@ -15,7 +15,10 @@ import java.util.List;
 public class UserServiceImpl implements UserService {
 
     @Autowired
-    private UserJpaRepository userJpaRepository;
+    private  UserJpaRepository userJpaRepository;
+
+    @Autowired
+    private PasswordEncoder passwordEncoder;
 
     @Override
     public List<User> findAll() {
@@ -51,11 +54,14 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User save(User user) {
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
         return userJpaRepository.save(user);
     }
 
     @Override
     public void delete(User user) {
-        userJpaRepository.delete(user);
+        if (user != null && userJpaRepository.findById(user.getId()).orElse(null) != null) {
+            userJpaRepository.delete(user);
+        }
     }
 }

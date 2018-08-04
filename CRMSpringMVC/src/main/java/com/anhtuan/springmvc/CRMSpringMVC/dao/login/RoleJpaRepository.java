@@ -1,13 +1,11 @@
-package com.anhtuan.springmvc.CRMSpringMVC.dao;
+package com.anhtuan.springmvc.CRMSpringMVC.dao.login;
 
-import com.anhtuan.springmvc.CRMSpringMVC.model.Role;
+import com.anhtuan.springmvc.CRMSpringMVC.model.login.Role;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
-
-import java.util.List;
 
 @Repository
 @Transactional

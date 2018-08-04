@@ -1,4 +1,4 @@
-package com.anhtuan.springmvc.CRMSpringMVC.model;
+package com.anhtuan.springmvc.CRMSpringMVC.model.login;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;

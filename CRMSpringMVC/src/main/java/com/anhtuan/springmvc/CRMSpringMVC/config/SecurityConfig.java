@@ -27,15 +27,13 @@ import java.security.SecureRandom;
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
-    private final UserDetailsService userDetailsService;
-
-    private final PersistentTokenRepository tokenRepository;
-
+    @Qualifier("customUserDetailService")
     @Autowired
-    public SecurityConfig(@Qualifier("customUserDetailService") UserDetailsService userDetailsService, @Qualifier("customPersistentTokenRepository") PersistentTokenRepository tokenRepository) {
-        this.userDetailsService = userDetailsService;
-        this.tokenRepository = tokenRepository;
-    }
+    private UserDetailsService userDetailsService;
+
+    @Qualifier("customPersistentTokenRepository")
+    @Autowired
+    private  PersistentTokenRepository tokenRepository;
 
     @Bean
     public PasswordEncoder passwordEncoder() {
@@ -65,6 +63,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.authorizeRequests()
                 .antMatchers("/", "/home").permitAll()
                 .antMatchers("/security/*").hasAnyRole("ADMIN", "DBA")
+                .antMatchers("/allRoles").hasAnyRole("ADMIN", "DBA")
                 .and().formLogin().loginPage("/login").usernameParameter("username").passwordParameter("password")
                 .and().csrf()
                 .and().exceptionHandling().accessDeniedPage("/")

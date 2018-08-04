@@ -1,6 +1,6 @@
-package com.anhtuan.springmvc.CRMSpringMVC.service;
+package com.anhtuan.springmvc.CRMSpringMVC.service.login;
 
-import com.anhtuan.springmvc.CRMSpringMVC.model.User;
+import com.anhtuan.springmvc.CRMSpringMVC.model.login.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;

@@ -1,4 +1,4 @@
-package com.anhtuan.springmvc.CRMSpringMVC.model;
+package com.anhtuan.springmvc.CRMSpringMVC.model.login;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 

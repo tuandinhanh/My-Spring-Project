@@ -1,7 +1,6 @@
-package com.anhtuan.springmvc.CRMSpringMVC.dao;
+package com.anhtuan.springmvc.CRMSpringMVC.dao.login;
 
-import com.anhtuan.springmvc.CRMSpringMVC.model.PersistentLogin;
-import org.hibernate.Criteria;
+import com.anhtuan.springmvc.CRMSpringMVC.model.login.PersistentLogin;
 import org.springframework.security.web.authentication.rememberme.PersistentRememberMeToken;
 import org.springframework.security.web.authentication.rememberme.PersistentTokenRepository;
 import org.springframework.stereotype.Repository;
